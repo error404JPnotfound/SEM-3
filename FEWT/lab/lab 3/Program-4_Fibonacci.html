@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let n1 = parseInt(prompt("Enter number of terms"));
+      let first = 0;
+      let second = 1;
+      let count = 0;
+      while (count < n1) {
+        document.write(first + " ");
+        let next = first + second;
+        first = second;
+        second = next;
+        count++;
+      }
+    </script>
+  </body>
+</html>

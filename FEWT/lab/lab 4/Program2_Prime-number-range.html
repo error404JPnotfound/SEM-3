@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var flag=0,flag2=0;
+        let n1=parseInt(prompt("Enter 1st number."));
+        let n2=parseInt(prompt("Enter 2nd number"));
+        for(var j=n1;j<=n2;j++){
+            for(var i=2;i<j;i++){
+                if(j%i==0){
+                   flag++; 
+                }
+            }
+            if(flag==0){
+                document.write(j+" ,");
+                flag2++;
+            }
+            flag=0;
+        }
+        if(flag2!=0){
+            document.write(" are Prime Numbers in this range");
+        }
+        else {alert("No prime numbers detected");}
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n1=parseInt(prompt("Enter a number"));
+        var dig=0,final=0,org=n1,n2=n1,mid=0,rem=0;
+        while(n2!=0){
+            n2=parseInt(n2/10);
+            dig+=1;
+        }
+        while(n1!=0){
+            rem=n1%10;
+            mid=rem;
+            for(var i=1;i<dig;i++){
+                mid=mid*rem;
+            }
+            final=final+mid;
+            n1=parseInt(n1/10);
+        }
+        if(org==final){
+            alert("It is an armstrong number");
+        }
+        else alert("It is not an armstrong number");
+    </script>
+</body>
+</html>

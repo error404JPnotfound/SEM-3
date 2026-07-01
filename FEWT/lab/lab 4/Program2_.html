@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Get the word and the letter from the user using prompts
+        let word = prompt("Enter a word:");
+        let letter = prompt("Enter a letter to search:");
+
+        // 2. Find the computer positions (0-based index)
+        let firstIndex = word.indexOf(letter);
+        let lastIndex = word.lastIndexOf(letter);
+
+        // 3. Convert to human-friendly positions (1-based index)
+        let firstPosition = firstIndex + 1;
+        let lastPosition = lastIndex + 1;
+
+        // 4. Cut out the letters strictly between them
+        let betweenText = word.slice(firstIndex + 1, lastIndex);
+
+        // 5. Print the final results using document.write
+        document.write("First Position: " + firstPosition + "<br>");
+        document.write("Last Position: " + lastPosition + "<br>");
+        document.write("Text In Between: " + betweenText);
+    </script>
+</body>
+</html>
