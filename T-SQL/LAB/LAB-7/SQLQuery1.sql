@@ -1,0 +1,119 @@
+--1. Display employees detail whose FIRSTNAME starts with ‘H’. 
+
+SELECT *FROM EMPLOYEE WHERE FIRSTNAME LIKE 'H%';
+
+--2. Display employees detail whose FIRSTNAME consists of exactly 5 characters. 
+
+SELECT *FROM EMPLOYEE WHERE FIRSTNAME LIKE '_____';
+
+--3. Display employees detail whose CITY ends with ‘T’ and has 6 characters.
+
+SELECT *FROM EMPLOYEE WHERE CITY LIKE '_____T';
+
+--4. Display employees detail whose LASTNAME ends with ‘EL’. 
+
+SELECT *FROM EMPLOYEE WHERE LASTNAME LIKE '%EL';
+
+--5. Display employees detail whose FIRSTNAME starts with ‘R’ and ends with ‘A’. 
+
+SELECT *FROM EMPLOYEE WHERE FIRSTNAME LIKE 'R%%A';
+
+--6. Display employees detail whose FIRSTNAME starts with ‘V’ and third character is ‘S’. 
+
+SELECT *FROM EMPLOYEE WHERE FIRSTNAME LIKE 'V_S%';
+
+--7. Display employees detail whose CITY is NULL and FIRSTNAME has 6 characters. 
+
+SELECT *FROM EMPLOYEE WHERE CITY IS NULL AND FIRSTNAME LIKE '______'
+
+--8. Display employees detail whose FIRSTNAME contains ‘AR’. 
+
+SELECT *FROM EMPLOYEE WHERE FIRSTNAME LIKE '%AR%';
+
+
+--9. Display employees detail whose CITY starts with ‘R’ or ‘B’. 
+
+SELECT *FROM EMPLOYEE WHERE CITY LIKE 'R%' OR CITY LIKE 'B%';
+
+--10. Display employees detail whose DEPARTMENT is NOT NULL. 
+
+SELECT *FROM EMPLOYEE WHERE DEPARTMENT IS NOT NULL
+
+--11. Display employees detail whose FIRSTNAME starts from alphabet A to H.
+
+SELECT *FROM EMPLOYEE WHERE FIRSTNAME LIKE '[A-H]%';
+
+-- 12. Second character of FIRSTNAME is a vowel
+SELECT * FROM EMPLOYEE WHERE FIRSTNAME LIKE '_[AEIOU]%'
+
+-- 13. FIRSTNAME length ≥ 5
+SELECT * FROM EMPLOYEE WHERE FIRSTNAME LIKE '_____%';
+
+-- 14. LASTNAME starts with ‘PA’
+SELECT * FROM EMPLOYEE WHERE LASTNAME LIKE 'PA%';
+
+-- 15. CITY does not start with ‘B’
+SELECT * FROM EMPLOYEE WHERE CITY NOT LIKE 'B%';
+
+-- 16. Second character of FIRSTNAME is not a vowel
+SELECT * FROM EMPLOYEE WHERE FIRSTNAME NOT LIKE '_[AEIOU]%'
+
+-- 17. JOINING YEAR last digit is 4 or 6
+SELECT * FROM EMPLOYEE WHERE JOININGYEAR LIKE '%4' OR JOININGYEAR LIKE '%6';
+
+-- 18. FIRSTNAME starts with ‘H’, ends with ‘I’, CITY contains ‘RA’
+SELECT * FROM EMPLOYEE WHERE FIRSTNAME LIKE 'H%I' AND CITY LIKE '%RA%';
+
+-- 19. FIRSTNAME contains ‘A’, CITY ends with ‘D’, DEPARTMENT NOT NULL
+SELECT * FROM EMPLOYEE WHERE FIRSTNAME LIKE '%A%' AND CITY LIKE '%D' AND DEPARTMENT IS NOT NULL;
+
+-- 20. Second & third characters of FIRSTNAME are vowels, CITY starts with ‘R’
+SELECT * FROM EMPLOYEE 
+WHERE FIRSTNAME LIKE '_[AEIOU]%'
+  AND FIRSTNAME LIKE '__[AEIOU]%'
+  AND CITY LIKE 'R%';
+
+
+  -- 21. CITY contains ‘RA’, salary < 13000, joining year last digit = 6
+SELECT * FROM EMPLOYEE 
+WHERE CITY LIKE '%RA%' AND SALARY < 13000 AND JOININGYEAR LIKE '%6';
+-- 22. SALARY between 10000–15000, CITY contains 'KO', FIRSTNAME starts with H
+SELECT * FROM EMPLOYEE 
+WHERE SALARY BETWEEN 10000 AND 15000 AND CITY LIKE '%KO%' AND FIRSTNAME LIKE 'H%';
+
+-- 23. FIRSTNAME starts with ‘A’ or ‘D’, SALARY > 12000
+SELECT * FROM EMPLOYEE 
+WHERE (FIRSTNAME LIKE 'A%' OR FIRSTNAME LIKE 'D%') AND SALARY > 12000;
+
+-- 24. CITY contains ‘N’, SALARY < 15000
+SELECT * FROM EMPLOYEE WHERE CITY LIKE '%N%' AND SALARY < 15000;
+
+-- 25. FIRSTNAME length = 6, CITY ends with ‘AR’
+SELECT * FROM EMPLOYEE WHERE CITY LIKE '______%' AND CITY LIKE '%AR';
+-- 26. FIRSTNAME ends with vowel, DEPARTMENT starts with vowel, SALARY 10000–15000
+SELECT * FROM EMPLOYEE 
+WHERE FIRSTNAME LIKE '%[AEIOU]'
+  AND DEPARTMENT LIKE '[AEIOU]%'
+  AND SALARY BETWEEN 10000 AND 15000;
+
+-- 27. LASTNAME contains ‘A’ at least twice, gender male, SALARY ≠ 14000
+SELECT * FROM EMPLOYEE 
+WHERE LASTNAME LIKE '%A%A%' AND GENDER = 'Male' AND SALARY <> 14000;
+
+-- 28. FIRSTNAME second char vowel, LASTNAME ends with ‘R’, SALARY < 12000
+SELECT * FROM EMPLOYEE 
+WHERE FIRSTNAME LIKE '_[AEIOU]%'
+  AND LASTNAME LIKE '%R'
+  AND SALARY < 12000;
+
+-- 29. CITY NOT NULL, FIRSTNAME not starting with vowel, DEPARTMENT not in (‘HR’, ‘IT’)
+SELECT * FROM EMPLOYEE 
+WHERE CITY IS NOT NULL 
+  AND FIRSTNAME NOT LIKE '^[AEIOU]'
+  AND DEPARTMENT NOT IN ('HR','IT');
+
+-- 30. CITY NOT NULL, FIRSTNAME ends with vowel, DEPARTMENT not in (‘HR’, ‘IT’)
+SELECT * FROM EMPLOYEE 
+WHERE CITY IS NOT NULL 
+  AND FIRSTNAME LIKE '%[AEIOU]'
+  AND DEPARTMENT NOT IN ('HR','IT');
