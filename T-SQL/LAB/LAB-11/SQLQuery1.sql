@@ -1,0 +1,123 @@
+--1. Write a query to display the current date & time. Label the column Today_Date. 
+
+SELECT GETDATE() AS TODAYDATE
+
+--2. Write a query to find new date after 365 day with reference to today. 
+
+SELECT DATEADD(DAY,365,GETDATE()) AS NEW_DATAD
+
+--3. Display the current date in a format that appears as may 5 1994 12:00AM. 
+
+SELECT FORMAT(GETDATE(),'MMMM d yyyy hh:mm tt')
+
+--4. Display the current date in a format that appears as 03 Jan 1995. 
+
+SELECT FORMAT(GETDATE(),'dd MMM yyyy')
+
+--5. Display the current date in a format that appears as Jan 04, 96. 
+
+SELECT FORMAT(GETDATE(),'MMM dd, yy')
+
+--6. Write a query to find out total number of months between 31-Dec-08 and 31-Mar-09. 
+
+SELECT DATEDIFF(MONTH,'2008-12-08','2009-03-31') AS HELLO
+
+--7. Write a query to find out total number of hours between 25-Jan-12 7:00 and 26-Jan-12 10:30. 
+
+SELECT DATEDIFF(HOUR,'2012-01-25 7:00','2012-01-26 10:30') AS HOUR_DIFF
+
+
+--8. Write a query to extract Day, Month, Year from given date 12-May-16. 
+
+SELECT DAY('2016-05-12') AS DAY_EXT
+SELECT MONTH('2016-05-12') AS MONTH_EXT
+SELECT YEAR('2016-05-12') AS YEAR_EXT
+
+--9. Write a query that adds 5 years to current date. 
+
+SELECT DATEADD(YEAR,5,GETDATE()) AS NEW_YEARADD 
+
+--10. Write a query to subtract 2 months from current date. 
+
+SELECT DATEADD(MONTH,-2,GETDATE()) AS NEW_MONTHSUB 
+
+--11. Extract month from current date using datename () and datepart () function. 
+
+SELECT DATENAME(MONTH,GETDATE()) AS GET_DATENAME
+SELECT DATEPART(MONTH,GETDATE()) AS GET_DATEPARTNAME
+
+--12. Write a query to find out last date of current month.
+
+ SELECT EOMONTH(GETDATE()) AS GET_LASTDATE
+
+--13. Calculate your age in years and months. 
+
+SELECT DATEDIFF(MONTH,'2006-10-06',GETDATE())%12 AS AGE_DIFF_MONTH
+
+SELECT DATEDIFF(YEAR,'2006-10-06',GETDATE()) AS AGE_DIFF_YEAR
+
+--14. Display all records where account date is in the year 2025. 
+
+SELECT *FROM DEPOSIT WHERE YEAR(ADATE)=2025
+
+--15. Display all records where account date is in the month of March. 
+
+SELECT *FROM DEPOSIT WHERE MONTH(ADATE)=3
+
+
+--16. Display records where account date is after ‘01-Jan-2025’. 
+
+SELECT *FROM DEPOSIT WHERE ADATE > '2025-01-01'
+
+
+--17. Display records where account date is before ‘01-Jan-2025’. 
+
+SELECT *FROM DEPOSIT WHERE ADATE < '2025-01-01'
+
+--18. Display records where day of account date is 1. 
+
+SELECT *FROM DEPOSIT WHERE DAY(ADATE)=1
+
+--19. Display records where month of account date is greater than 6.
+
+SELECT *FROM DEPOSIT WHERE DAY(ADATE)>6
+
+--20. Display records where year of account date is 2026. 
+
+SELECT *FROM DEPOSIT WHERE YEAR(ADATE)=2026
+
+--21. Display number of accounts opened in each year.
+
+SELECT YEAR(ADATE) AS HEHE, COUNT(*) AS HI FROM DEPOSIT GROUP BY YEAR(ADATE)
+
+--22. Display number of accounts opened in each month. 
+
+SELECT MONTH(ADATE) AS MONTH_, COUNT(*) AS ACCOUNT_OPENED FROM DEPOSIT GROUP BY MONTH(ADATE)
+
+
+--23. Display maximum amount deposited in each year. 
+
+SELECT YEAR(ADATE) AS YEAR_, MAX(AMOUNT) AS AMOUNT_DEPOSIT FROM DEPOSIT GROUP BY YEAR(ADATE)
+
+
+--24. Display minimum amount deposited in each month. 
+
+SELECT YEAR(ADATE) AS YEAR_, MIN(AMOUNT) AS AMOUNT_DEPOSIT FROM DEPOSIT GROUP BY YEAR(ADATE)
+
+--25. Display total amount deposited in each year. 
+
+SELECT YEAR(ADATE) AS YEAR_, SUM(AMOUNT) AS AMOUNT_DEPOSIT FROM DEPOSIT GROUP BY YEAR(ADATE)
+
+
+--26. Display records where account date is between ‘01-Mar-2025’ and ‘31-Dec-2025’. 
+
+SELECT *FROM DEPOSIT WHERE ADATE BETWEEN '2025-03-01' AND '2025-12-31'
+
+--27. Display records where account date is in the current year. 
+
+SELECT *FROM DEPOSIT WHERE YEAR(ADATE)=2025
+
+
+--28. Display difference in days between today’s date and account date. 
+
+SELECT ACTNO,CNAME,DATEDIFF(DAY,ADATE,GETDATE()) AS DAY_DIFF FROM DEPOSIT

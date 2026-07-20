@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta value="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" name="settings" id="check" value="hi">HI
+    <input type="checkbox" name="settings" id="check" value="hola">Hola
+    <input type="checkbox" name="settings" id="check" value="Hello">Hello
+    <input type="checkbox" name="settings" id="check" value="sayonara">sayonara
+    <input type="checkbox" name="settings" id="check" value="Bonjour">Bonjour
+    <input type="checkbox" name="settings" id="check" value="kem palty">kem palty
+    <input type="checkbox" name="settings" id="check" value="Jai shree krishna">Jai shree krishna
+    <br><br>
+    <span id="write"></span>
+    <script>
+        let abc = document.querySelectorAll('input[type=checkbox][name=settings]');
+        let enabledsettings = []
+        abc.forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                enabledsettings =
+                    Array.from(abc) // Convert abc to an array to use filter and map.
+                        .filter(i => i.checked) // Use Array.filter to remove unchecked abc.
+                        .map(i => i.value) // Use Array.map to extract only the checkbox values from the array of objects.
+
+                document.getElementById("write").innerHTML=enabledsettings+"</br>"
+                console.log(enabledsettings)
+            })
+        });
+    </script>
+</body>
+
+</html>

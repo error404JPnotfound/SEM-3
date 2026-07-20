@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+        }
+
+        body {
+            background-color: rgb(119, 119, 255);
+        }
+
+        .headingtop {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            height: 20%;
+            width: 100%
+        }
+
+        .middlepart {
+            height: 50%;
+            width: 100%;
+            /* display: flex; */
+        }
+
+        .whiteboxbg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-self: center;
+            height: 70vh;
+            width: 50%;
+            background-color: white;
+            border-radius: 10%;
+        }
+
+        #h2roll {
+            justify-self: center;
+        }
+
+        .boxroll {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-self: center;
+            height: 10vh;
+            width: 10%;
+            background-color: rgb(255, 76, 76);
+            border-radius: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="headingtop">
+        <h1>Smart Attendence System</h1>
+        <h3>By JP</h3>
+    </div>
+    <br><br><br><br><br><br>
+    <div class="middlepart">
+        <div class="whiteboxbg">
+            <br>
+            <h2 id="h2roll">Enter Starting Roll number</h2>
+            <br>
+            <input type="del" id="strtroll">
+            <br><br>
+            <h2 id="h2roll">Enter Ending Roll number</h2>
+            <br>
+            <input type="del" id="endroll">
+            <br><br>
+            <input type="button" id="start" value="Start">
+            <br><br>
+            <div class="boxroll">
+
+            </div>
+            <div class="Buttons">
+                <input type="button" id="Present" value="Present">
+                <input type="button" id="Absent" value="Absent">
+            </div>
+
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Load jsPDF dynamically from CDN
+            const jsPdfScript = document.createElement('script');
+            jsPdfScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+            document.head.appendChild(jsPdfScript);
+            
+            // 2. Select Elements
+            const strtroll = document.getElementById('strtroll');
+            const endroll = document.getElementById('endroll');
+            const startBtn = document.getElementById('start');
+            const boxroll = document.querySelector('.boxroll');
+            const buttonsDiv = document.querySelector('.Buttons');
+            const presentBtn = document.getElementById('Present');
+            const absentBtn = document.getElementById('Absent');
+            const h2Labels = document.querySelectorAll('.whiteboxbg h2');
+            const brTags = document.querySelectorAll('.whiteboxbg br');
+
+            // Style boxroll for clean, visible centering
+            boxroll.style.color = 'white';
+            boxroll.style.fontSize = '2rem';
+            boxroll.style.fontWeight = 'bold';
+            boxroll.style.justifyContent = 'center';
+
+            // Hide boxroll and buttons initially
+            boxroll.style.display = 'none';
+            buttonsDiv.style.display = 'none';
+
+            // Application State
+            let startRollVal = 0;
+            let endRollVal = 0;
+            let currentRollVal = 0;
+            let attendanceRecord = [];
+            let isSessionActive = false;
+
+            // Functions
+            function updateRollDisplay() {
+                boxroll.textContent = currentRollVal;
+            }
+
+            function recordAttendance(status) {
+                if (!isSessionActive) return;
+
+                attendanceRecord.push({
+                    roll: currentRollVal,
+                    status: status
+                });
+
+                if (currentRollVal < endRollVal) {
+                    currentRollVal++;
+                    updateRollDisplay();
+                } else {
+                    finishAttendance();
+                }
+            }
+
+            function generatePDF() {
+                if (!window.jspdf) {
+                    alert('PDF generation library is still loading. Please try again in a moment.');
+                    return;
+                }
+
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                // Simple Document Content
+                doc.setFont("helvetica", "bold");
+                doc.setFontSize(16);
+                doc.text("Attendance Report", 14, 20);
+
+                doc.setFontSize(10);
+                doc.setFont("helvetica", "normal");
+                const dateStr = new Date().toLocaleString();
+                doc.text(`Generated: ${dateStr}`, 14, 28);
+                doc.text(`Roll Number Range: ${startRollVal} to ${endRollVal}`, 14, 34);
+
+                // Calculations
+                const total = attendanceRecord.length;
+                const presentCount = attendanceRecord.filter(r => r.status === 'Present').length;
+                const absentCount = total - presentCount;
+                const percentage = total > 0 ? ((presentCount / total) * 100).toFixed(1) : '0.0';
+
+                doc.text(`Total Students: ${total}`, 14, 42);
+                doc.text(`Present: ${presentCount}`, 14, 48);
+                doc.text(`Absent: ${absentCount}`, 14, 54);
+                doc.text(`Attendance Percentage: ${percentage}%`, 14, 60);
+
+                // Table Header
+                doc.setFont("helvetica", "bold");
+                doc.text("Roll Number", 14, 70);
+                doc.text("Status", 70, 70);
+                doc.line(14, 72, 100, 72);
+
+                // Table rows
+                let y = 80;
+                doc.setFont("helvetica", "normal");
+
+                attendanceRecord.forEach((record) => {
+                    if (y > 280) {
+                        doc.addPage();
+                        y = 20;
+                        doc.setFont("helvetica", "bold");
+                        doc.text("Roll Number", 14, y);
+                        doc.text("Status", 70, y);
+                        doc.line(14, y + 2, 100, y + 2);
+                        doc.setFont("helvetica", "normal");
+                        y += 10;
+                    }
+
+                    doc.text(record.roll.toString(), 14, y);
+                    doc.text(record.status, 70, y);
+                    y += 8;
+                });
+
+                doc.save("attendance_report.pdf");
+            }
+
+            function finishAttendance() {
+                isSessionActive = false;
+                generatePDF();
+                
+                alert('Attendance complete! The PDF report has been downloaded.');
+
+                // Restore startup screen controls
+                h2Labels.forEach(h2 => h2.style.display = 'block');
+                strtroll.style.display = 'inline-block';
+                endroll.style.display = 'inline-block';
+                startBtn.style.display = 'inline-block';
+                brTags.forEach(br => br.style.display = 'inline');
+
+                // Hide attendance screen
+                boxroll.style.display = 'none';
+                buttonsDiv.style.display = 'none';
+
+                // Reset fields
+                strtroll.value = '';
+                endroll.value = '';
+            }
+
+            // Click Listeners
+            startBtn.addEventListener('click', () => {
+                const startVal = parseInt(strtroll.value.trim(), 10);
+                const endVal = parseInt(endroll.value.trim(), 10);
+
+                if (isNaN(startVal) || isNaN(endVal)) {
+                    alert('Please enter valid starting and ending roll numbers.');
+                    return;
+                }
+                if (startVal <= 0 || endVal <= 0) {
+                    alert('Roll numbers must be positive integers.');
+                    return;
+                }
+                if (startVal > endVal) {
+                    alert('Starting roll number cannot be greater than ending roll number.');
+                    return;
+                }
+
+                // Setup state
+                startRollVal = startVal;
+                endRollVal = endVal;
+                currentRollVal = startVal;
+                attendanceRecord = [];
+                isSessionActive = true;
+
+                // Hide startup elements
+                h2Labels.forEach(h2 => h2.style.display = 'none');
+                strtroll.style.display = 'none';
+                endroll.style.display = 'none';
+                startBtn.style.display = 'none';
+                brTags.forEach(br => br.style.display = 'none');
+
+                // Show attendance elements
+                boxroll.style.display = 'flex';
+                buttonsDiv.style.display = 'block';
+
+                updateRollDisplay();
+            });
+
+            presentBtn.addEventListener('click', () => recordAttendance('Present'));
+            absentBtn.addEventListener('click', () => recordAttendance('Absent'));
+
+            // Key Press Listeners
+            document.addEventListener('keydown', (e) => {
+                if (!isSessionActive) return;
+                if (e.key === 'ArrowLeft') {
+                    // Quick click animation feedback   
+                    presentBtn.style.transform = 'scale(0.95)';
+                    setTimeout(() => presentBtn.style.transform = 'scale(1)', 80);
+                    recordAttendance('Present');
+                } else if (e.key === 'ArrowRight') {
+                    // Quick click animation feedback
+                    absentBtn.style.transform = 'scale(0.95)';
+                    setTimeout(() => absentBtn.style.transform = 'scale(1)', 80);
+                    recordAttendance('Absent');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

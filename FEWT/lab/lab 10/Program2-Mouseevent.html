@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" name="HI" value="oh no" id="hello">
+    <span id="write"></span>
+    <script>
+        let abc=document.getElementById("hello");
+            abc.addEventListener("click",function(){
+                document.body.style.background="red";
+                document.getElementById("write").innerHTML ="left click detected";
+                
+            });
+            abc.addEventListener("contextmenu",function(){
+                document.body.style.background="blue";
+                document.getElementById("write").innerHTML ="right click detected";
+
+            });
+    </script>
+</body>
+</html>
