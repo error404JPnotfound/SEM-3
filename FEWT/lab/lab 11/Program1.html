@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Enter Student Details</br></h1>
+    <label for="Name"><input type="text" id="newname"></label>
+    <label for="Roll no"><input type="tel" name="" id="roll"></label>
+    <label for="semster"><input type="tel" id="sem"></label>
+    <input type="button" id="submit" value="Submit">
+    <script>
+
+
+        class function1 {
+            constructor(name, roll_no, semester) {
+                this.name = name;
+                this.roll_no = roll_no;
+                this.semester = semester;
+            }
+
+            Display() {
+                document.writeln("name is  " + this.name + " roll No is " + this.roll_no + " and semester is " + this.semester);
+            }
+        }
+        document.getElementById("submit").addEventListener("click", function () {
+            let name = document.getElementById("newname").value
+            let roll_no = parseInt(document.getElementById("roll").value)
+            let semester = parseInt(document.getElementById("sem").value)
+            let s1 = new function1(name, roll_no, semester);
+            s1.Display()
+        })
+    </script>
+</body>
+
+</html>

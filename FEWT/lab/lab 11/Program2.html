@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array=[10,20,30];
+        let array2=[...array];
+        array=[40,50,60];
+        for(i=0;i<3;i++){
+            document.write(" "+array[i]+"</br>");
+        }
+        for(i=0;i<3;i++){
+            document.write(" "+array2[i]+"</br>");
+        }
+        let obj1={a:5,b:90};
+        let obj2={...obj1,c:80};
+        console.log(obj2);
+    </script>
+</body>
+</html>
