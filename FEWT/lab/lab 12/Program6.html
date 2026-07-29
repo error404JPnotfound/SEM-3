@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+</head>
+<body>
+     <!-- write a jQuery program to append new row to existing table when clicked on button -->
+      <table>
+        <tr>
+            <td>kaka</td>
+        </tr>
+      </table>
+      <button id="clicked">click</button>
+      <script>
+        $("#clicked").click(function(){
+            $("table").append("<tr><td>Haylu to khara ho bhai</td></tr>");
+        });
+      </script>
+</body>
+</html>

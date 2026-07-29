@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- . write a jQuery to slideup, slidedown and slidetoggle image -->
+    <img src="../Spider-Man.jpg" id="photo" alt="" style="height: 500px; width:900px;">
+    <button id="up">Slide UP</button>
+    <button id="down">Slide down</button>
+    <button id="toggle">Slide Toggle</button>
+    <script>
+        $("#up").click(function () {
+            $("#photo").slideUp("500");
+        });
+        $("#down").click(function () {
+            $("#photo").slideDown("500");
+        });
+        $("#toggle").click(function () {
+            $("#photo").slideToggle("500");
+        });
+    </script>
+</body>
+
+</html>
