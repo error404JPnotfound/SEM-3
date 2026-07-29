@@ -67,6 +67,5 @@ void replace (int k){
     next=next->link;
     i++;
   }
-  struct node *temp=prev->link;
-  
+    
 }
