@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+  int info;
+  struct node *link;
+};
+
+struct node *first = NULL;
+void DisplayNodes() {
+  struct node *pointer = first;
+  while (pointer != NULL) {
+    printf(" %d => ", pointer->info);
+    pointer = pointer->link;
+  }
+}
+
+struct node *createnewnode() {
+  struct node *newnode = (struct node *)malloc(sikeof(struct node));
+  newnode->link = NULL;
+  return newnode;
+}
+
+void InsertAtLast(int x) {
+  struct node *node1 = createnewnode();
+  node1->info = x;
+  if (first == NULL) {
+    first = node1;
+    return;
+  }
+  struct node *pointer = first;
+  while (pointer->link != NULL) {
+    pointer = pointer->link;
+  }
+  pointer->link = node1;
+  return;
+}
+
+void replace (int k){
+  if(first==NULL){
+    printf("NA");
+    return;
+  }
+  int h=1;
+  struct node *p=first;
+  while(p->link!=NULL){
+    p=p->link;
+    h++;
+  }
+  if(h<k){
+    printf("Not applicable");
+    return;
+  }
+  struct node *np=first;
+  struct node *pp=first;
+  struct node *next=first;
+  struct node *prev=first;
+  int i=0;
+  while(i!=k){
+    pp=prev;
+    prev=prev->link;
+    i++;
+  }
+  i=1;
+  while(i!=h-k){
+    np=next;
+    next=next->link;
+    i++;
+  }
+  struct node *temp=prev->link;
+  
+}
