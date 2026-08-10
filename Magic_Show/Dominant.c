@@ -46,5 +46,4 @@ void main(){
     // else {
     //     printf("\nThe Dominant Number is %d",count);
     // }
-
 }

@@ -67,6 +67,9 @@ VALUES
 (109,'MEHUL BHUNDIYA',4,13500,'2005-01-09','BARODA'),
 (110,'MOHIT MARU',5,14000,'2000-05-25','JAMNAGAR');
 
+
+DROP TABLE PUBLISHER
+
 CREATE TABLE PUBLISHER
 (
     PublisherID INT PRIMARY KEY,
@@ -77,7 +80,7 @@ CREATE TABLE PUBLISHER
 INSERT INTO PUBLISHER VALUES
 (1,'Rupa Publications','Delhi'),
 (2,'Penguin India','New Delhi'),
-(3,'Westland Books','Chennai'),
+(3,'ALEPH BOOK ACEDEMY','NEW DELHI'),
 (4,'HarperCollins India','Noida');
 
 CREATE TABLE AUTHOR
@@ -95,6 +98,8 @@ INSERT INTO AUTHOR VALUES
 (5,'Jhumpa Lahiri','India'),
 (6,'Paulo Coelho','Brazil'),
 (7,'Sudha Murty','India');
+
+DROP TABLE BOOK
 
 CREATE TABLE BOOK
 (

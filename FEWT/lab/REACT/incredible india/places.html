@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Places - Incredible India</title>
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f0f5ff;
+    }
+
+    /* Navbar pill links */
+    .nav-pill-link {
+      color: #CF5C36;
+      font-size: 1.1rem;
+      padding: 10px 18px;
+      border: 1px solid orange;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 1s;
+      margin: 4px;
+    }
+    .nav-pill-link:hover {
+      color: #541E11;
+      transform: translateY(-10px);
+      box-shadow: 3px 3px 10px black;
+    }
+
+    .incredible-logo {
+      height: 100px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Place card box */
+    .place-card {
+      background-color: rgba(250, 250, 250, 0.532);
+      border-radius: 25px;
+      padding: 40px;
+      border-left: 5px solid #1388087c;
+      border-right: 5px solid #1388087c;
+      box-shadow: 0px 0px 50px 10px rgb(0,0,0), inset 0px 0px 0px 0px rgb(0,0,0);
+      transition: box-shadow 1s ease-in-out;
+      min-height: 320px;
+    }
+    .place-card:hover {
+      box-shadow: 0px 0px 0px 0px rgb(0,0,0), inset 0px 0px 50px 1px rgb(0,0,0);
+    }
+
+    /* Place images */
+    .place-img {
+      height: auto;
+      max-height: 260px;
+      width: auto;
+      max-width: 100%;
+      border-radius: 10%;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+    .place-img:hover {
+      box-shadow: 0 30px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+
+    p {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Logo -->
+  <div class="text-center mt-4 mb-2">
+    <a href="https://www.incredibleindia.gov.in/en" target="_blank">
+      <img class="incredible-logo" src="/Resouces/Incredible-logo.png" alt="Incredible India">
+    </a>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="d-flex justify-content-center flex-wrap py-2 mb-0">
+    <a class="nav-pill-link" href="incredible.html">Home</a>
+    <a class="nav-pill-link" href="about.html">About</a>
+    <a class="nav-pill-link" href="gallery.html">Gallery</a>
+    <a class="nav-pill-link" href="places.html">Places</a>
+    <a class="nav-pill-link" href="travelinfo.html">Travel Info</a>
+    <a class="nav-pill-link" href="contact.html">Contact</a>
+  </nav>
+  <hr class="border-dark mx-3">
+
+  <!-- Places Section -->
+  <div class="container-fluid px-4">
+
+    <!-- Gujarat -->
+    <div class="place-card mb-4">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center mb-3 mb-md-0">
+          <img src="Resouces/statueofunity.jpg" class="place-img" alt="Statue Of Unity" />
+        </div>
+        <div class="col-md-6">
+          <h2>Gujarat: The Land of Lions</h2>
+          <p class="text-center">
+            Gujarat is located on the western coast of India. It is a land of
+            great contrast, stretching from the seasonal salt deserts of the
+            Rann of Kutch to the lush uplands of Saputara. It is the only home
+            to the Asiatic Lion.
+          </p>
+          <ul>
+            <li>Key Attractions: Rann of Kutch, Somnath Temple, and Gir National Park.</li>
+            <li>Culture: Famous for Garba dance, vibrant handicrafts, and Dhokla.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Rajasthan -->
+    <div class="place-card mb-4">
+      <div class="row align-items-center">
+        <div class="col-md-6 order-md-2 text-center mb-3 mb-md-0">
+          <img src="Resouces/RajasthanJP.jpg" class="place-img" alt="Rajasthan" />
+        </div>
+        <div class="col-md-6 order-md-1">
+          <h2>Rajasthan: The Land of Kings</h2>
+          <p class="text-center">
+            Rajasthan is India's largest state by area. It is known for the
+            Great Indian Desert (Thar Desert) and its magnificent forts and
+            palaces that showcase the royalty of the Rajput kings.
+          </p>
+          <ul>
+            <li>Key Attractions: Jaipur (The Pink City), Udaipur (City of Lakes), and Jaisalmer Fort.</li>
+            <li>Culture: Famous for Ghoomar dance, puppet shows, and Dal Baati Churma.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Punjab -->
+    <div class="place-card mb-4">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center mb-3 mb-md-0">
+          <img src="Resouces/punjabgolden.jpg" class="place-img" alt="Punjab" />
+        </div>
+        <div class="col-md-6">
+          <h2>Punjab: The Land of Five Rivers</h2>
+          <p class="text-center">
+            Punjab, located in the northwest, is known as the granary of
+            India. It is famous for its warm hospitality, golden mustard
+            fields, and the spiritual serenity of the Golden Temple.
+          </p>
+          <ul>
+            <li>Key Attractions: Golden Temple (Amritsar), Wagah Border, and Jallianwala Bagh.</li>
+            <li>Culture: Known for Bhangra dance, vibrant festivals like Baisakhi, and Makki di Roti.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Karnataka -->
+    <div class="place-card mb-4">
+      <div class="row align-items-center">
+        <div class="col-md-6 order-md-2 text-center mb-3 mb-md-0">
+          <img src="Resouces/karnatakajp.jpg" class="place-img" alt="Karnataka" />
+        </div>
+        <div class="col-md-6 order-md-1">
+          <h2>Karnataka: Silicon Valley Of India</h2>
+          <p class="text-center">
+            Karnataka, in southwest India, offers a mix of glittering palaces,
+            ancient ruins, and a thriving IT hub. It ranges from the heritage
+            sites of Hampi to the misty hills of Coorg.
+          </p>
+          <ul>
+            <li>Key Attractions: Mysore Palace, Hampi (UNESCO World Heritage Site), and Coorg.</li>
+            <li>Culture: Famous for Yakshagana dance, Mysore Dasara, and Mysore Pak.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Uttarakhand -->
+    <div class="place-card mb-5">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center mb-3 mb-md-0">
+          <img src="Resouces/ukjp.jpg" class="place-img" alt="Uttarakhand" />
+        </div>
+        <div class="col-md-6">
+          <h2>Uttarakhand: The Land of Gods</h2>
+          <p>
+            Uttarakhand is located in the Himalayas and is known for its Hindu
+            pilgrimage sites. It offers breathtaking mountain views, adventure
+            sports like rafting, and spiritual retreats.
+          </p>
+          <ul>
+            <li>Key Attractions: Rishikesh, Nainital, and the Char Dham temples.</li>
+            <li>Culture: Known for Garhwali and Kumaoni folklore, yoga festivals, and simple hill cuisine.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

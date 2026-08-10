@@ -56,7 +56,7 @@ struct Node* swapKthNodes(struct Node* head, int n, int k) {
     } else {
         head = curr1;
     }
-
+        
     struct Node* temp = curr1->link;
     curr1->link = curr2->link;
     curr2->link = temp;

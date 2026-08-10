@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            font-size: 380%;
+            font-weight: 300;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            transition: 1s;
+            color: #CF5C36;
+        }
+
+        a:hover {
+            transition: 1s;
+            font-size: 30px;
+            color: #541E11;
+        }
+        #linktable p{
+            color: #CF5C36;
+            font-size: 30px;
+            transition: 1s;
+            margin: 5px;
+            padding: 10px;
+            border: solid 1px orange;
+            border-radius: 30px;
+            transition: 10px 1s box-shadow;
+        }
+        
+        #linktable p:hover {
+            transform: translateY(-10px);
+            transition: 1s;
+            font-size: 30px;
+            color: #541E11;
+            box-shadow: 3px 3px 10px black;
+        }
+        body {
+            height: 100%;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-color: #f0f5ff;
+        }
+
+        #phone:invalid {
+            color: #CF5C36;
+        }
+
+        .submitbutton {
+            background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+            outline: none;
+            border: none;
+        }
+        *{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .submitbutton:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .resetbutton {
+            background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+            outline: none;
+            border: none;
+        }
+
+        .resetbutton:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+        }
+
+        input {
+            border-radius: 10%;
+            background-color: rgb(255, 255, 255);
+        }
+
+        input:Hover {
+            transition: 1.5s;
+            background-color: rgb(255, 219, 158);
+        }
+
+        img {
+            display: flex;
+            justify-self: center;
+            height: 10vh;
+        }
+
+        @media screen and (max-width: 480px) {
+            #table2 {
+                width: 100%;
+            }
+
+            img {
+                height: auto;
+                max-width: 100%;
+            }
+
+            .submitbutton,
+            .resetbutton {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <br><br>
+    <a href="https://www.incredibleindia.gov.in/en" target="_blank">
+        <img class="incredible" src="/Resouces/Incredible-logo.png" alt="">
+    </a>
+    <br>
+    <table align="Center" id="linktable">
+        <tr>
+            <td>
+                <a href="incredible.html"><p>Home</p></a>
+            </td>
+            <td>
+                <a href="about.html"><p>About</p></a>
+            </td>
+            <td>
+                 <a href="gallery.html"><p>Gallery</p></a>
+            </td>
+            <td>
+                <a href="places.html"><p>Places </p></a>
+            </td>
+            <td>
+                 <a href="travelinfo.html"><p>Travel Info</p></a>
+            </td>
+            <td>
+                <a href="contact.html"><p>Contact</p></a>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <caption>
+        <p align="center" style="font-size: 35px;"><b>Contact Us & Inquiry</b></p>
+    </caption>
+    <h4 align="center">Please Fill Out the given Form</h4>
+    <table align="center" id="table2">
+        <form action="get">
+            <tbody>
+                <tr>
+                    <td><label for="name">Full Name</label><br><br></td>
+                    <td>:<br><br></td>
+                    <td><input type="text" name="name" id="name" placeholder="Enter Your Name" required><br><br></td>
+                </tr>
+                <td><label for="email">Email</label><br><br></td>
+                <td>:<br><br></td>
+                <td><input type="email" name="email" id="email" placeholder="Enter Your Email" required><br><br></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">Phone</label><br><br></td>
+                    <td>:<br><br></td>
+                    <td><input type="tel" name="phone" id="phone" pattern="[0-9]{10}"
+                            placeholder="Enter Your Phone Number" required><br><br></td>
+                </tr>
+                <tr>
+                    <td><label for="age">Age:</label><br><br></td>
+                    <td>:<br><br></td>
+                    <td><input type="number" name="age" id="age" required><br><br></td>
+                </tr>
+                <tr>
+                    <td><label for="state">State</label><br><br></td>
+                    <td>:<br><br></td>
+                    <td>
+                        <select name="state" id="state" required>
+                            <option value="" selected disabled>Select State</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Karnataka">Karnataka</option>
+                        </select><br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="Traveller">Type Of Traveller</label></td>
+                    <td>:</td>
+                    <td>
+                        <input type="radio" name="Traveller" id="Solo" required>
+                        <label for="Solo">Solo</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="radio" name="Traveller" id="Family" required>
+                        <label for="Family">Family</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="radio" name="Traveller" id="Friends Group" required>
+                        <label for="Friends Group">Friends Group</label>
+                        <br><br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="interest">What Are You Interested In?</label></td>
+                    <td>:</td>
+                    <td><input type="checkbox" name="interest" id="interest1" required><label for="interest1" id="interest">History & Monument</label></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="checkbox" name="interest" id="interest2"><label for="interest2" id="interest2">Nature & Lakes</label></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="checkbox" name="interest" id="interest3"><label for="interest3">Food & Shopping    </label><br><br></td>
+                </tr>
+                <tr>
+                    <td><label for="Month">Planned Month Of Visit<br><br></label></td>
+                    <td>:<br><br></td>
+                    <td><select name="Month" id="Month">
+                            <option value="" selected disabled>--Select Month--</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select><br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="msg">Massage/Questions</label></td>
+                    <td>:</td>
+                    <td><textarea name="msg" id="msg" placeholder="Write Your Feedback Or Questions Here"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class="submitbutton">Submit Form</button>
+                    <td><button type="reset" class="resetbutton">Clear Form</button></td>
+                </tr>
+                </td>
+                </tr>
+            </tbody>
+        </form>
+    </table>
+</body>
+
+</html>

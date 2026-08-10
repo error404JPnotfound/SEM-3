@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="divwhole">
+        <div class="div1">
+            <ol>
+                <li>ol li 1</li>
+                <li>ol li 2</li>
+                <li>ol li 3</li>
+            </ol>
+            <h1>
+                This is a silbling of ol and its parent is div1
+            </h1>
+        </div>
+        <div class="div2">
+            <ul>
+                <li id="myul">ul li 1</li>
+                <li>ul li 2</li>
+                <li>ul li 3</li>
+                <li id="myulend">ul li 4</li>
+                <li>ul li 5</li>
+                <li>ul li 6</li>
+            </ul>
+            <h2>
+                This is a sibling of ul and its parent is div2
+            </h2>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            console.log($("ol").parent());
+            console.log($("h1").parent());
+            console.log($("ul").siblings());
+            console.log($("h2").siblings());
+            console.log($("ol").children());
+            console.log($(".div1").find("ol"));
+            console.log($("#myul").siblings());
+            console.log($("#myul").next());
+            console.log($("#myul").nextAll());
+            console.log($("#myul").nextUntil("#myulend"));
+            // Filtering
+            console.log($("li").first);
+            console.log($("li").eq(Jee2));
+            console.log($("li").last);
+        })
+    </script>
+</body>
+</html>

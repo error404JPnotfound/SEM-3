@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Dheeme Dheeme Gayab ka to Show</h1>
+    <h2>HIDEEEEEE dheeme dheeme</h2>
+    <h3>JADOOOOOO</h3>
+    <button>Abra Ka dabra gili gili chhu</button>
+    <script>
+        $(document).ready(function(){
+            $("h3").hide();
+        })
+        $("button").click(function(){
+            $("h1").fadeToggle(1000);
+        })
+        $("button").click(function(){
+            $("h2").fadeOut(1000,()=>{alert("HI")});
+
+        })
+        $("button").click(function(){
+            $("h3").fadeIn(1000);
+        })
+    </script>
+</body>
+</html>

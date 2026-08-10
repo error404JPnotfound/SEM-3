@@ -1,0 +1,29 @@
+body {
+            background-color: #f0f5ff;
+        }
+
+
+        .nav-pill-link {
+            color: #CF5C36;
+            font-size: 1.1rem;
+            padding: 10px 18px;
+            border: 1px solid orange;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 1s;
+            margin: 4px;
+        }
+
+        .nav-pill-link:hover {
+            color: #541E11;
+            transform: translateY(-10px);
+            box-shadow: 3px 3px 10px black;
+        }
+
+
+        .incredible-logo {
+            height: 100px;
+            display: block;
+            margin: 0 auto;
+        }
