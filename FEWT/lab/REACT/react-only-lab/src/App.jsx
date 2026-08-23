@@ -7,8 +7,11 @@ import Video from "./lab-20/Video";
 import UseStateDemo from "./Lab-21/UseStateDemo";
 import UseEffectDemo from "./Lab-21/UseEffectDemo";
 import Password from "./Lab-21/Password";
+import { useState } from "react";
+import A from "./lab-18/A";
 
 function App() {
+    const [name,setName]=useState("")
     return (
         <>
             {/* <BrowserRouter>
@@ -29,7 +32,8 @@ function App() {
             </BrowserRouter> */}
             {/* <UseStateDemo/> */}
             {/* <UseEffectDemo/> */}
-            <Password/>
+            {/* <Password/> */}
+            <A name={name} setName={setName}/>
         </>
     );
 }
