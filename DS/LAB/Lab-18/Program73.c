@@ -19,7 +19,8 @@ void EnqueueAtFront() {
   scanf("%d", &x);
   printf("\n");
   if (F == -1) {
-    F = R = 0;
+    F = 0;
+    R = 0;
   } else
     F = F - 1;
 
@@ -59,7 +60,8 @@ void DequeueAtRear() {
   printf("Dequeued Element is %d \n", queue[R]);
 
   if (F == R) {
-    F = R = -1;
+    F = -1;
+    R = -1;
   } else
     R -= 1;
 }

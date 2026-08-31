@@ -8,7 +8,7 @@ import UseStateDemo from "./Lab-21/UseStateDemo";
 import UseEffectDemo from "./Lab-21/UseEffectDemo";
 import Password from "./Lab-21/Password";
 import { useState } from "react";
-import A from "./lab-18/A";
+import A from "./lab-18/B-part/A";
 
 function App() {
     const [name,setName]=useState("")
@@ -33,6 +33,7 @@ function App() {
             {/* <UseStateDemo/> */}
             {/* <UseEffectDemo/> */}
             {/* <Password/> */}
+            {/* <A name={name} setName={setName}/> */}
             <A name={name} setName={setName}/>
         </>
     );

@@ -18,18 +18,19 @@ struct Node *newNode(int item) {
 
 struct Node *insert(struct Node *node, int key) {
 
-  if (node == NULL)
+  if (node == NULL) {
     return newNode(key);
+  }
 
-  if (node->key == key)
+  if (node->key == key) {
     return node;
-
-  if (node->key < key)
+  }
+  if (node->key < key) {
     node->right = insert(node->right, key);
 
-  else
+  } else {
     node->left = insert(node->left, key);
-
+  }
   return node;
 }
 
