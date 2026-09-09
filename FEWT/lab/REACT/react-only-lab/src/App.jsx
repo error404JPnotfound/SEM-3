@@ -9,9 +9,12 @@ import UseEffectDemo from "./Lab-21/UseEffectDemo";
 import Password from "./Lab-21/Password";
 import { useState } from "react";
 import A from "./lab-18/B-part/A";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Calculator from "./Lab-22/Calculator";
+
 
 function App() {
-    const [name,setName]=useState("")
+    // const [name,setName]=useState("")
     return (
         <>
             {/* <BrowserRouter>
@@ -34,7 +37,8 @@ function App() {
             {/* <UseEffectDemo/> */}
             {/* <Password/> */}
             {/* <A name={name} setName={setName}/> */}
-            <A name={name} setName={setName}/>
+            {/* <A name={name} setName={setName}/> */}
+            <Calculator/>
         </>
     );
 }
