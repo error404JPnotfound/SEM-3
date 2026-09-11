@@ -27,6 +27,7 @@ void DisplayNodes(){
         pointer=pointer->link;
         h++;
     }
+    printf("\n");
 }
 
 void pop(){
@@ -50,6 +51,7 @@ void change(int x,int y){
 
 void peek(){
     printf("%d\n",first->info);
+    return;
 }
 
 void peep(int x){
@@ -64,7 +66,6 @@ void peep(int x){
         return;
     }
     pointer=first;
-    // printf("%d ",counter);
     while(i!=counter){
         pointer=pointer->link;
         i++;
@@ -75,14 +76,46 @@ void peep(int x){
 }
 
 void main(){
-    int y=10;
-    int z=29;
-    int r=30;
-    int h=2;
-    push(y);
-    push(z);
-    push(r);
-    // DisplayNodes();
-    peek();
-    peep(h);
+    while(1){
+        int p;
+        printf("Enter 1 to push\nEnter 2 to pop\nEnter 3 to peep\nEnter 4 to peek\nEnter 5 to change\nEnter 6 to Display\nEnter 0 to Exit\n");
+        scanf("%d",&p);
+        switch(p){
+            case 0:{
+                exit(0);
+            }
+            case 1:{
+                int x;
+                printf("Enter Value : ");
+                scanf("%d",&x);
+                push(x);
+                break;
+            }
+            case 2:{
+                pop();
+                break;
+            }
+            case 3:{
+                printf("Enter Value : ");
+                scanf("%d",&p);
+                peep(p);
+                break;
+            }
+            case 4:{
+                peek(p);
+                break;
+            }
+            case 5:{
+                int x,y;
+                printf("Enter the element you want to change and the value: ");
+                scanf("%d %d",&x,&y);
+                change(x,y);
+                break;
+            }
+            case 6:{
+                DisplayNodes();
+                break;
+            }
+        }
+    }
 }
