@@ -1,46 +1,46 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Contact from "./lab-20/Contact";
-import Home from "./lab-20/Home";
-import Layout from "./lab-20/Layout";
-import Music from "./lab-20/Music";
-import Video from "./lab-20/Video";
-import UseStateDemo from "./Lab-21/UseStateDemo";
-import UseEffectDemo from "./Lab-21/UseEffectDemo";
-import Password from "./Lab-21/Password";
+import React from 'react'
 import { useState } from "react";
-import A from "./lab-18/B-part/A";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Calculator from "./Lab-22/Calculator";
-
+import Login from "./Lab-19/Login";
+import Dashboard from "./Lab-19/Dashboard";
+import Crud from './Lab-23/CRUD';
+import "./App.css"
 
 function App() {
-    // const [name,setName]=useState("")
-    return (
-        <>
-            {/* <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Layout />}>
-                        <Route path="/Home" element={<Home />} />
-                        <Route path="/Contact" element={<Contact />}>
-                            Contact
-                        </Route>
-                        <Route path="/Music" element={<Music />}>
-                            Music
-                        </Route>
-                        <Route path="/Video" element={<Video />}>
-                            Video
-                        </Route>
-                    </Route>
-                </Routes>
-            </BrowserRouter> */}
-            {/* <UseStateDemo/> */}
-            {/* <UseEffectDemo/> */}
-            {/* <Password/> */}
-            {/* <A name={name} setName={setName}/> */}
-            {/* <A name={name} setName={setName}/> */}
-            <Calculator/>
-        </>
-    );
+    return(
+<>
+    <Crud/>
+</>
+    )
+//     const [currentUser, setCurrentUser] = useState("");
+
+//   const users = [
+//     { username: "Jeel", password: "12345", name: "Jeel Pandya" },
+//     { username: "Pandya", password: "67890", name: "Pandya User" }
+//   ];
+
+//   const handleLogin = (username, password) => {
+//     const user = users.find(
+//       (u) => u.username === username && u.password === password
+//     );
+//     if (user) {
+//       setCurrentUser(user);
+//     } else {
+//       alert("Invalid credentials!");
+//     }
+//   };
+
+//   const handleLogout = () => setCurrentUser("");
+
+//   return (
+//     <div>
+//       {currentUser ? (
+//         <Dashboard user={currentUser} onLogout={handleLogout} />
+//       ) : (
+//         <Login onLogin={handleLogin} />
+//       )}
+//     </div>
+//   );
+
 }
 
-export default App;
+export default App
